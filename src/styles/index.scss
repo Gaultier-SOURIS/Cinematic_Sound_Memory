@@ -1,5 +1,5 @@
-@use "reset";
-@use "variables" as v;
+@use 'reset';
+@use 'variables' as v;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -11,4 +11,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: v.$bg-color1;
+  background: linear-gradient(
+    v.$bg-gradient-angle,
+    v.$bg-color2 0%,
+    v.$bg-color3 55%,
+    v.$bg-color4 100%
+  );
 }

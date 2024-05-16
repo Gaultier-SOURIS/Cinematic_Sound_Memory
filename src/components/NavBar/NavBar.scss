@@ -1,0 +1,15 @@
+@use '@scssVariables' as v;
+
+.navBar {
+  border-bottom: 3px solid v.$mainBorder;
+  padding: 1rem;
+
+  &__mainTitle {
+    text-align: right;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    color: v.$mainTxt;
+  }
+}
