@@ -33,5 +33,6 @@ module.exports = {
     ],
     'react/no-unescaped-entities': 'off',
     'no-console': 'off',
+    'no-plusplus': 'off',
   },
 };
