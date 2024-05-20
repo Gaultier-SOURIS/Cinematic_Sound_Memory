@@ -1,12 +1,14 @@
 import './Main.scss';
-import RulesBtn from '../Buttons/RulesBtn';
 import Pads from '../Pads/Pads';
+import GameScreen from '../GameScreen/GameScreen';
+import StartBtn from '../Buttons/StartBtn';
 
 export default function Main() {
   return (
     <div className="main">
-      <RulesBtn />
+      <GameScreen />
       <Pads />
+      <StartBtn />
     </div>
   );
 }

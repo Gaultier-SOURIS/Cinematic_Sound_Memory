@@ -1,0 +1,15 @@
+@use '@scssVariables' as v;
+
+.startBtn {
+  &__btn {
+    background-color: v.$bg-pad;
+    border-radius: 10px;
+    border: 3px solid v.$border-pad;
+    display: inline-block;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 20px;
+    padding: 12px 40px;
+    text-decoration: none;
+  }
+}

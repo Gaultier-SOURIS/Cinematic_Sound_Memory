@@ -1,7 +1,7 @@
 @use '@scssVariables' as v;
 
 .rules-btn {
-  border: 3px solid v.$mainBorder;
+  border: 3px solid v.$border-main;
   border-radius: 25px;
   padding: 0.1rem 0.5rem;
   margin: 1rem 0 0 1rem;

@@ -5,9 +5,9 @@ export default function Pads() {
 
   for (let i = 0; i < 9; i++) {
     pads.push(
-      <div className="pad" id={`pad-${i}`} key={i}>
+      <button type="button" className="pad" id={`pad-${i}`} key={i}>
         {i + 1}
-      </div>
+      </button>
     );
   }
 

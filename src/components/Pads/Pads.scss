@@ -5,10 +5,8 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 70%;
+  width: 80%;
   gap: 0.2rem;
-  margin: 0 auto;
-  margin-top: 2rem;
 }
 
 .pad {
@@ -17,8 +15,8 @@
   align-items: center;
   width: 5rem;
   height: 5rem;
-  border: 3px solid v.$mainBorder;
+  border: 3px solid v.$border-pad;
   border-radius: 10px;
   font-size: 2rem;
-  background-color: v.$padBg;
+  background-color: v.$bg-pad;
 }
