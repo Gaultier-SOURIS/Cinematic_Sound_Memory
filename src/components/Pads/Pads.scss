@@ -21,3 +21,8 @@
   font-size: 2rem;
   background-color: v.$bg-pad;
 }
+
+.pad.active {
+  border-color: green;
+  color: green;
+}

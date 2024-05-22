@@ -12,4 +12,9 @@
     padding: 12px 40px;
     text-decoration: none;
   }
+
+  &__btn.active {
+    border-color: orange;
+    color: orange;
+  }
 }
