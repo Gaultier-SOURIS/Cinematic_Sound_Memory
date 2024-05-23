@@ -2,10 +2,17 @@ import './Pads.scss';
 import { useState, useEffect } from 'react';
 import western from '../../data/western';
 
-export default function Pads({ currentImageId, startedGame }) {
+export default function Pads({
+  currentImageId,
+  startedGame,
+  onNextImage,
+  // setCurrentIndex,
+  // currentIndex,
+}) {
   const [shuffledSounds, setShuffledSounds] = useState([]);
   const [currentSound, setCurrentSound] = useState(null);
   const [message, setMessage] = useState('');
+  // console.log('currentIndex', currentIndex);
 
   const handleBorderColor = (e) => {
     e.target.classList.add('active');
@@ -16,22 +23,30 @@ export default function Pads({ currentImageId, startedGame }) {
 
   useEffect(() => {
     const shuffleArray = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
       }
-      return array;
+      return newArray;
     };
 
     const shuffled = shuffleArray([...western]);
     setShuffledSounds(shuffled);
-  }, []);
+  }, []); // Se mélangent une seule fois lors de l'initialisation
 
   const playSound = (sound, id) => {
     if (startedGame) {
+      console.log('touche appuyé', id);
       if (id === currentImageId) {
+        console.log('id', id);
+        console.log('currentImageId', currentImageId);
+
         console.log('Réussite!');
         setMessage('Réussite!');
+        // setCurrentIndex((prevIndex) => prevIndex + 1);
+        // console.log('currentIndex', currentIndex);
+        onNextImage();
       } else {
         console.log('raté !!!');
         setMessage('raté !!!');

@@ -1,4 +1,4 @@
-import './startingScreen.scss';
+import './StartingScreen.scss';
 
 export default function StartingScreen() {
   return (

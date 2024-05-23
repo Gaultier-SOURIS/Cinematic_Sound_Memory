@@ -1,33 +1,44 @@
-import './GameScreen.scss';
 import { useState, useEffect } from 'react';
+import './GameScreen.scss';
 import western from '../../data/western';
 
-export default function GameScreen({ setCurrentImageId }) {
-  const [currentImage, setCurrentImage] = useState(null);
+export default function GameScreen({ setCurrentImageId, currentIndex }) {
+  const [shuffledImages, setShuffledImages] = useState([]);
+  const [showImage, setShowImage] = useState(true);
 
   useEffect(() => {
     const shuffleArray = (array) => {
-      for (let i = array.length - 1; i > 0; i--) {
+      const newArray = [...array];
+      for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
       }
-      return array;
+      return newArray;
     };
 
-    const shuffled = shuffleArray([...western]);
-    const selectedImage = shuffled[0];
-    setCurrentImage(selectedImage);
-    setCurrentImageId(selectedImage.id);
+    const shuffledArray = shuffleArray(western);
+    setShuffledImages(shuffledArray);
+    setCurrentImageId(shuffledArray[0].id);
   }, [setCurrentImageId]);
+
+  useEffect(() => {
+    if (shuffledImages.length > 0 && currentIndex < shuffledImages.length) {
+      setCurrentImageId(shuffledImages[currentIndex].id);
+    }
+  }, [currentIndex, shuffledImages, setCurrentImageId]);
 
   return (
     <div className="gameScreen">
-      {currentImage && (
-        <img
-          className="gameScreen__img"
-          src={currentImage.image}
-          alt="ecran du jeu"
-        />
+      {currentIndex < shuffledImages.length ? (
+        showImage && (
+          <img
+            className="gameScreen__img"
+            src={shuffledImages[currentIndex].image}
+            alt="game"
+          />
+        )
+      ) : (
+        <div>Bravo, vous avez fini le jeu!</div>
       )}
     </div>
   );

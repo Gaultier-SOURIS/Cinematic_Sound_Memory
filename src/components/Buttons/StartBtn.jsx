@@ -2,7 +2,6 @@ import './StartBtn.scss';
 
 export default function StartBtn({ setStartedGame }) {
   const handleStartedGame = () => {
-    console.log('Game started!');
     setStartedGame(true);
   };
 
