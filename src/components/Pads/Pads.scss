@@ -11,18 +11,76 @@
 }
 
 .pad {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 5rem;
-  height: 5rem;
-  border: 3px solid v.$border-pad;
-  border-radius: 10px;
-  font-size: 2rem;
-  background-color: v.$bg-pad;
+  display: flex; /* Utilisation de flexbox pour centrer le contenu */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  width: 5rem; /* Largeur fixe */
+  height: 5rem; /* Hauteur fixe */
+  border: 3px solid #ffffff; /* Bordure */
+  border-radius: 10px; /* Bords arrondis */
+  font-size: 2rem; /* Taille de la police */
+  background-color: v.$bg-pad; /* Couleur de fond */
+  transition: all 0.1s ease-in-out; /* Transition pour l'animation */
+
+  &:active {
+    border-color: v.$border-pad; /* Couleur de la bordure lorsqu'il est pressé */
+    transform: scale(
+      0.95
+    ); /* Réduction de la taille pour simuler une pression */
+  }
 }
 
-.pad.active {
-  border-color: green;
-  color: green;
+.btn-container {
+  order: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  &__continue {
+    font-size: 1.5rem;
+  }
+  &__btn {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .pads-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .pad {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .pads-container {
+    width: 400px;
+    height: 400px;
+  }
+
+  .pad {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .pads-container {
+    width: 550px;
+    height: 550px;
+    gap: 0.6rem;
+  }
+
+  .pad {
+    width: 11rem;
+    height: 11rem;
+  }
 }

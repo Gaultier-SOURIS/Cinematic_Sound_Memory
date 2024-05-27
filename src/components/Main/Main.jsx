@@ -9,6 +9,8 @@ export default function Main() {
   const [startedGame, setStartedGame] = useState(false);
   const [currentImageId, setCurrentImageId] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [message, setMessage] = useState('');
+  const [count, setCount] = useState(0);
 
   const handleNextImage = () => {
     setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -19,6 +21,8 @@ export default function Main() {
         <GameScreen
           setCurrentImageId={setCurrentImageId}
           currentIndex={currentIndex}
+          message={message}
+          count={count}
         />
       ) : (
         <StartingScreen />
@@ -30,8 +34,15 @@ export default function Main() {
         onNextImage={handleNextImage}
         setCurrentIndex={setCurrentIndex}
         currentIndex={currentIndex}
+        message={message}
+        setMessage={setMessage}
+        setCount={setCount}
       />
-      <StartBtn setStartedGame={setStartedGame} />
+      {!startedGame && (
+        <div className="startBtn-container">
+          <StartBtn setStartedGame={setStartedGame} />
+        </div>
+      )}
     </div>
   );
 }

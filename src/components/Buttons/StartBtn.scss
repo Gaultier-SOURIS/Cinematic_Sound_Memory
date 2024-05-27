@@ -2,19 +2,48 @@
 
 .startBtn {
   &__btn {
-    background-color: v.$bg-pad;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.5rem;
+    height: 3rem;
+    border: 3px solid #ffffff;
     border-radius: 10px;
-    border: 3px solid v.$border-pad;
-    display: inline-block;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 20px;
-    padding: 12px 40px;
-    text-decoration: none;
-  }
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    background-color: v.$bg-pad;
+    transition: all 0.1s ease-in-out;
 
-  &__btn.active {
-    border-color: orange;
-    color: orange;
+    &:active {
+      border-color: v.$border-pad;
+      transform: scale(0.95);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .startBtn {
+    &__btn {
+      width: 10rem;
+      height: 4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .startBtn {
+    &__btn {
+      width: 12.5rem;
+      height: 5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .startBtn {
+    &__btn {
+      width: 15rem;
+      height: 6rem;
+    }
   }
 }

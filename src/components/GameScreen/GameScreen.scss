@@ -11,4 +11,47 @@
     width: 100%;
     height: 100%;
   }
+
+  &__message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: v.$txt-main;
+    background-color: v.$bg-main-trans;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__endMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    color: v.$txt-main;
+    background-color: v.$bg-main-trans;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .gameScreen {
+    height: 300px;
+    width: 300px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .gameScreen {
+    height: 400px;
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .gameScreen {
+    height: 550px;
+    width: 550px;
+  }
 }

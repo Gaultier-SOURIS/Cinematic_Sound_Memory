@@ -6,7 +6,7 @@
   align-items: center;
   border-bottom: 3px solid v.$border-main;
   padding: 0.5rem;
-  background-color: v.$bg-main;
+  background-color: v.$bg-main-trans;
 
   &__mainTitle {
     text-align: right;
@@ -14,5 +14,21 @@
     font-size: 1.2rem;
     margin-right: 0.5rem;
     font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navBar {
+    padding: 1rem;
+
+    &__mainTitle {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navBar__mainTitle {
+    font-size: 2rem;
   }
 }

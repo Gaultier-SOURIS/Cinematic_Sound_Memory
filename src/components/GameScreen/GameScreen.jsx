@@ -2,9 +2,14 @@ import { useState, useEffect } from 'react';
 import './GameScreen.scss';
 import western from '../../data/western';
 
-export default function GameScreen({ setCurrentImageId, currentIndex }) {
+export default function GameScreen({
+  setCurrentImageId,
+  currentIndex,
+  message,
+  count,
+}) {
   const [shuffledImages, setShuffledImages] = useState([]);
-  const [showImage, setShowImage] = useState(true);
+  const [showImage, _] = useState(true);
 
   useEffect(() => {
     const shuffleArray = (array) => {
@@ -29,16 +34,18 @@ export default function GameScreen({ setCurrentImageId, currentIndex }) {
 
   return (
     <div className="gameScreen">
-      {currentIndex < shuffledImages.length ? (
-        showImage && (
-          <img
-            className="gameScreen__img"
-            src={shuffledImages[currentIndex].image}
-            alt="game"
-          />
-        )
+      {message ? (
+        <div className="gameScreen__message">{message}</div>
+      ) : showImage && currentIndex < shuffledImages.length ? (
+        <img
+          className="gameScreen__img"
+          src={shuffledImages[currentIndex].image}
+          alt="game"
+        />
       ) : (
-        <div>Bravo, vous avez fini le jeu!</div>
+        <div className="gameScreen__endMessage">
+          Bravo, vous avez fini le jeu en {count} essais !
+        </div>
       )}
     </div>
   );

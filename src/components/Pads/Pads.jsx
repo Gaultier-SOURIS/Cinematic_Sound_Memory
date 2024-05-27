@@ -1,25 +1,26 @@
 import './Pads.scss';
 import { useState, useEffect } from 'react';
 import western from '../../data/western';
+import YesBtn from '../Buttons/YesBtn';
+import NoBtn from '../Buttons/NoBtn';
 
 export default function Pads({
   currentImageId,
   startedGame,
   onNextImage,
-  // setCurrentIndex,
-  // currentIndex,
+  setMessage,
+  setCount,
+  currentIndex,
 }) {
   const [shuffledSounds, setShuffledSounds] = useState([]);
   const [currentSound, setCurrentSound] = useState(null);
-  const [message, setMessage] = useState('');
-  // console.log('currentIndex', currentIndex);
-
-  const handleBorderColor = (e) => {
-    e.target.classList.add('active');
-    setTimeout(() => {
-      e.target.classList.remove('active');
-    }, 250);
-  };
+  const [_, setShowImage] = useState(true);
+  // const handleBorderColor = (e) => {
+  //   e.target.classList.add('active');
+  //   setTimeout(() => {
+  //     e.target.classList.remove('active');
+  //   }, 250);
+  // };
 
   useEffect(() => {
     const shuffleArray = (array) => {
@@ -33,23 +34,27 @@ export default function Pads({
 
     const shuffled = shuffleArray([...western]);
     setShuffledSounds(shuffled);
-  }, []); // Se mélangent une seule fois lors de l'initialisation
+  }, []);
 
   const playSound = (sound, id) => {
     if (startedGame) {
-      console.log('touche appuyé', id);
       if (id === currentImageId) {
-        console.log('id', id);
-        console.log('currentImageId', currentImageId);
-
-        console.log('Réussite!');
-        setMessage('Réussite!');
-        // setCurrentIndex((prevIndex) => prevIndex + 1);
-        // console.log('currentIndex', currentIndex);
-        onNextImage();
+        setCount((prevCount) => prevCount + 1);
+        setMessage('Bien joué');
+        setShowImage(false);
+        setTimeout(() => {
+          setMessage('');
+          setShowImage(true);
+          onNextImage();
+        }, 500);
       } else {
-        console.log('raté !!!');
-        setMessage('raté !!!');
+        setCount((prevCount) => prevCount + 1);
+        setMessage('Dommage');
+        setShowImage(false);
+        setTimeout(() => {
+          setMessage('');
+          setShowImage(true);
+        }, 500);
       }
     } else {
       if (currentSound) {
@@ -73,17 +78,23 @@ export default function Pads({
         onClick={() =>
           playSound(shuffledSounds[i]?.sound, shuffledSounds[i]?.id)
         }
-        onMouseDown={handleBorderColor}
+        // onMouseDown={handleBorderColor}
       >
         {i + 1}
       </button>
     );
   }
 
-  return (
-    <div className="pads-container">
-      {pads}
-      {message && <div className="success-message">{message}</div>}
+  // Only render the pads if the game is ongoing
+  return currentIndex < western.length ? (
+    <div className="pads-container">{pads}</div>
+  ) : (
+    <div className="btn-container">
+      <p className="btn-container__continue">Une autre partie ?</p>
+      <div className="btn-container__btn">
+        <YesBtn />
+        <NoBtn />
+      </div>
     </div>
   );
 }

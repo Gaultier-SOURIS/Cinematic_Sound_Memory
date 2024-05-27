@@ -1,10 +1,39 @@
 @use '@scssVariables' as v;
 
 .startingScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   border: 3px solid v.$border-main;
   border-radius: 10px;
-  height: 246.38px;
-  width: 262.5px;
-  padding: 1rem;
+  height: 250px;
+  width: 250px;
+  padding: 0.5rem;
   background-color: v.$bg-main-trans;
+}
+
+@media screen and (min-width: 768px) {
+  .startingScreen {
+    height: 300px;
+    width: 300px;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .startingScreen {
+    height: 400px;
+    width: 400px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .startingScreen {
+    height: 550px;
+    width: 550px;
+    font-size: 2rem;
+  }
 }

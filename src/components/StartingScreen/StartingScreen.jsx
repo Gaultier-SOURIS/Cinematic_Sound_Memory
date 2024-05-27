@@ -4,14 +4,14 @@ export default function StartingScreen() {
   return (
     <div className="startingScreen">
       <p className="screen__message">
-        1. Ecoutes les sons en appuyant sur les touches, et memorises les bien !
+        1. Écoute les sons en appuyant sur les touches et mémorise-les bien.
       </p>
       <p className="screen__message">
-        2. quand tu appuies sur start, des images vont appraitre.
+        2. Lorsque tu appuies sur "Start", des images apparaîtront.
       </p>
       <p className="screen__message">
-        3. Souviens toi du son qui correspond a l'image et appuie sur le bon
-        bouton.
+        3. Rappelle-toi du son correspondant à chaque image et appuie sur la
+        bonne touche.
       </p>
     </div>
   );

@@ -34,5 +34,12 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'no-console': 'off',
     'no-plusplus': 'off',
+    'no-nested-ternary': 'off',
+    'no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: '^_',
+      },
+    ],
   },
 };
