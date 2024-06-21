@@ -35,10 +35,10 @@ export default function GameRule() {
           </div>
           <div className="gameRule__instructions-container-right">
             <div className="gameRule__img-container">
-              <img src="../../../public/western/img/indien.jpg" alt="" />
+              <img src="/western/img/indien.jpg" alt="" />
             </div>
             <div className="gameRule__img-container">
-              <img src="../../../public/img/img_pad.png" alt="" />
+              <img src="/img/img_pad.png" alt="" />
             </div>
           </div>
         </div>
