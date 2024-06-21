@@ -1,32 +1,63 @@
 @use '@scssVariables' as v;
 
-.pads-container {
+.pads {
+  background-image: url(./background/img1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 60vh;
+  padding: 1rem;
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 250px;
+    gap: 0.2rem;
+    margin: 1rem auto;
+  }
+}
+
+.finish {
+  background-image: url(./background/img1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  width: 250px;
-  height: 250px;
-  gap: 0.2rem;
+  margin: 0rem 1rem 1rem 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 40vh;
 }
 
 .pad {
-  display: flex; /* Utilisation de flexbox pour centrer le contenu */
-  justify-content: center; /* Centrage horizontal */
-  align-items: center; /* Centrage vertical */
-  width: 5rem; /* Largeur fixe */
-  height: 5rem; /* Hauteur fixe */
-  border: 3px solid #ffffff; /* Bordure */
-  border-radius: 10px; /* Bords arrondis */
-  font-size: 2rem; /* Taille de la police */
-  background-color: v.$bg-pad; /* Couleur de fond */
-  transition: all 0.1s ease-in-out; /* Transition pour l'animation */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  font-size: 2rem;
+  background-color: v.$bg-pad;
+  transition: all 0.1s ease-in-out;
+  color: v.$txt-pad;
 
   &:active {
-    border-color: v.$border-pad; /* Couleur de la bordure lorsqu'il est pressé */
-    transform: scale(
-      0.95
-    ); /* Réduction de la taille pour simuler une pression */
+    border-color: v.$border-pad;
+    transform: scale(0.95);
   }
 }
 
@@ -49,9 +80,10 @@
 }
 
 @media screen and (min-width: 768px) {
-  .pads-container {
-    width: 300px;
-    height: 300px;
+  .pads__container {
+    width: 350px;
+    height: 350px;
+    gap: 0.5rem;
   }
 
   .pad {
@@ -61,26 +93,24 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .pads-container {
-    width: 400px;
-    height: 400px;
+  .pads {
+    margin: 6rem 1rem 1rem 1rem;
+    height: 700px;
+    width: 700px;
+
+    &__container {
+      margin-top: 6rem;
+      width: 400px;
+      height: 400px;
+    }
   }
 
   .pad {
-    width: 8rem;
-    height: 8rem;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .pads-container {
-    width: 550px;
-    height: 550px;
-    gap: 0.6rem;
+    width: 7rem;
+    height: 7rem;
   }
 
-  .pad {
-    width: 11rem;
-    height: 11rem;
+  .finish {
+    display: none;
   }
 }

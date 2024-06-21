@@ -20,7 +20,7 @@ export default function StartBtn({ setStartedGame }) {
         onClick={handleStartedGame}
         onMouseDown={handleBorderColor}
       >
-        Start
+        Commence le jeu
       </button>
     </div>
   );

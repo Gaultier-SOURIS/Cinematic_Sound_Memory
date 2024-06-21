@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 7.5rem;
+    width: 15rem;
     height: 3rem;
     border: 3px solid #ffffff;
     border-radius: 10px;
@@ -13,6 +13,7 @@
     font-size: 1.5rem;
     background-color: v.$bg-pad;
     transition: all 0.1s ease-in-out;
+    color: v.$txt-pad;
 
     &:active {
       border-color: v.$border-pad;
@@ -21,29 +22,29 @@
   }
 }
 
-@media screen and (min-width: 768px) {
-  .startBtn {
-    &__btn {
-      width: 10rem;
-      height: 4rem;
-    }
-  }
-}
+// @media screen and (min-width: 768px) {
+//   .startBtn {
+//     &__btn {
+//       width: 10rem;
+//       height: 4rem;
+//     }
+//   }
+// }
 
-@media screen and (min-width: 1024px) {
-  .startBtn {
-    &__btn {
-      width: 12.5rem;
-      height: 5rem;
-    }
-  }
-}
+// @media screen and (min-width: 1024px) {
+//   .startBtn {
+//     &__btn {
+//       width: 12.5rem;
+//       height: 5rem;
+//     }
+//   }
+// }
 
-@media screen and (min-width: 1440px) {
-  .startBtn {
-    &__btn {
-      width: 15rem;
-      height: 6rem;
-    }
-  }
-}
+// @media screen and (min-width: 1440px) {
+//   .startBtn {
+//     &__btn {
+//       width: 15rem;
+//       height: 6rem;
+//     }
+//   }
+// }

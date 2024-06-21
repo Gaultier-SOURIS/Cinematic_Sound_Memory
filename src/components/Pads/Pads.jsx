@@ -1,12 +1,13 @@
 import './Pads.scss';
 import { useState, useEffect } from 'react';
+import StartBtn from '../Buttons/StartBtn';
+import RetryBtn from '../Buttons/RetryBtn';
 import western from '../../data/western';
-import YesBtn from '../Buttons/YesBtn';
-import NoBtn from '../Buttons/NoBtn';
 
 export default function Pads({
   currentImageId,
   startedGame,
+  setStartedGame,
   onNextImage,
   setMessage,
   setCount,
@@ -15,12 +16,6 @@ export default function Pads({
   const [shuffledSounds, setShuffledSounds] = useState([]);
   const [currentSound, setCurrentSound] = useState(null);
   const [_, setShowImage] = useState(true);
-  // const handleBorderColor = (e) => {
-  //   e.target.classList.add('active');
-  //   setTimeout(() => {
-  //     e.target.classList.remove('active');
-  //   }, 250);
-  // };
 
   useEffect(() => {
     const shuffleArray = (array) => {
@@ -49,7 +44,7 @@ export default function Pads({
         }, 500);
       } else {
         setCount((prevCount) => prevCount + 1);
-        setMessage('Dommage');
+        setMessage('dommage');
         setShowImage(false);
         setTimeout(() => {
           setMessage('');
@@ -78,22 +73,29 @@ export default function Pads({
         onClick={() =>
           playSound(shuffledSounds[i]?.sound, shuffledSounds[i]?.id)
         }
-        // onMouseDown={handleBorderColor}
       >
         {i + 1}
       </button>
     );
   }
 
-  // Only render the pads if the game is ongoing
   return currentIndex < western.length ? (
-    <div className="pads-container">{pads}</div>
+    <div className="pads">
+      <div className="pads__container">{pads}</div>
+      {!startedGame ? (
+        <div className="btn-container">
+          <StartBtn setStartedGame={setStartedGame} />
+        </div>
+      ) : (
+        <div className="btn-container">
+          <RetryBtn />
+        </div>
+      )}
+    </div>
   ) : (
-    <div className="btn-container">
-      <p className="btn-container__continue">Une autre partie ?</p>
-      <div className="btn-container__btn">
-        <YesBtn />
-        <NoBtn />
+    <div className="finish">
+      <div className="btn-container">
+        <RetryBtn />
       </div>
     </div>
   );

@@ -1,0 +1,25 @@
+@use '@scssVariables' as v;
+
+.destinationGameBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 2rem;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  text-transform: uppercase;
+  background-color: black;
+  color: v.$txt-main;
+  transition: all 0.1s ease-in-out;
+  margin: 0.5rem 0;
+
+  &__btn {
+    cursor: pointer;
+  }
+
+  &:active {
+    border-color: v.$border-pad;
+    transform: scale(0.95);
+  }
+}

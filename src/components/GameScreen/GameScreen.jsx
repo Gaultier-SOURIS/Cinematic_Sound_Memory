@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './GameScreen.scss';
 import western from '../../data/western';
+import RetryBtn from '../Buttons/RetryBtn';
 
 export default function GameScreen({
   setCurrentImageId,
@@ -32,21 +33,33 @@ export default function GameScreen({
     }
   }, [currentIndex, shuffledImages, setCurrentImageId]);
 
+  const renderEndMessage = () => {
+    if (count === 9) {
+      return 'Bravo, vous avez Tout réussi du premier coup !';
+    }
+    return `Bravo, vous avez fini le jeu en ${count} essais !`;
+  };
+
   return (
     <div className="gameScreen">
-      {message ? (
-        <div className="gameScreen__message">{message}</div>
-      ) : showImage && currentIndex < shuffledImages.length ? (
-        <img
-          className="gameScreen__img"
-          src={shuffledImages[currentIndex].image}
-          alt="game"
-        />
-      ) : (
-        <div className="gameScreen__endMessage">
-          Bravo, vous avez fini le jeu en {count} essais !
-        </div>
-      )}
+      <div className="gameScreen__container">
+        {message ? (
+          <div className="gameScreen__message">{message}</div>
+        ) : showImage && currentIndex < shuffledImages.length ? (
+          <img
+            className="gameScreen__img"
+            src={shuffledImages[currentIndex].image}
+            alt="game"
+          />
+        ) : (
+          <div className="gameScreen__endMessage-container">
+            <div className="gameScreen__endMessage">{renderEndMessage()}</div>
+            <div className="gameScreen__endMessage-btn">
+              <RetryBtn />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

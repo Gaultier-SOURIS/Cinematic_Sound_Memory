@@ -1,0 +1,19 @@
+@use '@scssVariables' as v;
+
+.gameRuleBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  text-transform: uppercase;
+  background-color: v.$bg-main-trans;
+  transition: all 0.1s ease-in-out;
+
+  &:active {
+    border-color: v.$border-pad;
+    transform: scale(0.95);
+  }
+}

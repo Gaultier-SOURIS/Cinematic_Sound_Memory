@@ -1,57 +1,83 @@
 @use '@scssVariables' as v;
 
 .gameScreen {
-  border: 3px solid v.$border-main;
+  background-image: url(./background/img8.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 1rem 1rem 1rem;
+  padding: 1rem;
   border-radius: 10px;
-  height: 246.38px;
-  width: 262.5px;
+  height: 40vh;
 
-  &__img {
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-  }
-
-  &__message {
+  &__container {
+    width: 275px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
-    color: v.$txt-main;
-    background-color: v.$bg-main-trans;
-    width: 100%;
-    height: 100%;
   }
 
+  &__img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+  }
+
+  &__message,
   &__endMessage {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    font-size: 2rem;
-    color: v.$txt-main;
     background-color: v.$bg-main-trans;
-    width: 100%;
-    height: 100%;
+    width: 275px;
+    height: 275px;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 10px;
+  }
+  &__endMessage {
+    font-size: 2rem;
+  }
+
+  &__endMessage-btn {
+    display: none;
   }
 }
 
 @media screen and (min-width: 768px) {
   .gameScreen {
-    height: 300px;
-    width: 300px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .gameScreen {
-    height: 400px;
-    width: 400px;
+    margin: 7rem 1rem 1rem 1rem;
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
   .gameScreen {
-    height: 550px;
-    width: 550px;
+    margin: 6rem 1rem 1rem 1rem;
+    height: 700px;
+    width: 700px;
+
+    &__container {
+      width: 450px;
+    }
+
+    &__message,
+    &__endMessage {
+      width: 450px;
+      height: 450px;
+    }
+    &__endMessage-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    &__endMessage-btn {
+      display: block;
+    }
   }
 }

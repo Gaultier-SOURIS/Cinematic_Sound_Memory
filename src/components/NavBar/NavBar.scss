@@ -1,19 +1,49 @@
 @use '@scssVariables' as v;
 
 .navBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  border-bottom: 3px solid v.$border-main;
   padding: 0.5rem;
-  background-color: v.$bg-main-trans;
+  background-color: white;
 
   &__mainTitle {
+    text-transform: uppercase;
     text-align: right;
     margin-right: 0.5rem;
-    font-size: 1.2rem;
+    font-size: 22px;
     margin-right: 0.5rem;
     font-weight: bold;
+  }
+
+  &__links {
+    display: none;
+  }
+}
+
+.navBar__links a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
   }
 }
 
@@ -22,13 +52,22 @@
     padding: 1rem;
 
     &__mainTitle {
-      font-size: 1.5rem;
+      font-size: 26px;
+    }
+    &__links {
+      font-size: 16px;
+      display: flex;
+      gap: 5rem;
     }
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .navBar__mainTitle {
-    font-size: 2rem;
+  .navBar {
+    flex-direction: row;
+
+    &__mainTitle {
+      font-size: 2rem;
+    }
   }
 }
