@@ -1,7 +1,7 @@
 @use '@scssVariables' as v;
 
 .gameRule {
-  background-image: url(./background/img5.jpg);
+  background-image: url('/img5.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

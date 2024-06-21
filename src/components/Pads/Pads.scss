@@ -1,7 +1,7 @@
 @use '@scssVariables' as v;
 
 .pads {
-  background-image: url(./background/img1.jpg);
+  background-image: url('/img1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 }
 
 .finish {
-  background-image: url(./background/img1.jpg);
+  background-image: url('/img1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
