@@ -4,6 +4,7 @@ import NavBar from '../NavBar/NavBar';
 import Game from '../Game/Game';
 import Home from '../Home/Home';
 import ThemeSelection from '../ThemeSelection/ThemeSelection';
+import Footer from '../Footer/Footer';
 
 function App() {
   const scrollTo = (pixelCount) => {
@@ -26,6 +27,7 @@ function App() {
 
         <Route path="/game" element={<Game />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

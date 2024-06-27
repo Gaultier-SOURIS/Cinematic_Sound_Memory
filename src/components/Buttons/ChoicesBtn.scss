@@ -11,3 +11,11 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+@media screen and (min-width: 1024px) {
+  .choicesBtn {
+    width: 300px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.5rem;
+  }
+}
