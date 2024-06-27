@@ -1,6 +1,6 @@
 @use '@scssVariables' as v;
 
-.destinationGameBtn {
+.choicesBtn {
   background-color: v.$bg-main-trans-2;
   color: white;
   width: 150px;
@@ -9,14 +9,5 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 1rem 0;
-
-  &__btn {
-    cursor: pointer;
-  }
-
-  &:active {
-    border-color: v.$border-pad;
-    transform: scale(0.95);
-  }
+  cursor: pointer;
 }

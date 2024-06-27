@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import Game from '../Game/Game';
 import Home from '../Home/Home';
+import ThemeSelection from '../ThemeSelection/ThemeSelection';
 
 function App() {
   const scrollTo = (pixelCount) => {
@@ -21,6 +22,8 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home onPresentationClick={scrollTo} />} />
+        <Route path="/themeSelection" element={<ThemeSelection />} />
+
         <Route path="/game" element={<Game />} />
       </Routes>
     </div>

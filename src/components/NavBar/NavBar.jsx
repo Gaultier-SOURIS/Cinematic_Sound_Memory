@@ -28,7 +28,7 @@ export default function NavBar({ onRulesClick }) {
           Règle du jeu
         </Link>
         <Link
-          to="/game"
+          to="/themeSelection"
           onClick={() => {
             setTimeout(() => {
               window.scrollTo({ top: 0, behavior: 'smooth' });

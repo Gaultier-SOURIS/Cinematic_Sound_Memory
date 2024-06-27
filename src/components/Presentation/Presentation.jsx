@@ -10,7 +10,7 @@ export default function Presentation({ onRulesClick }) {
         <p className="presentation__text">
           Teste ta mémoire avec ce petit jeu de mémorie sonore.
         </p>
-        <Link to="/game">
+        <Link to="/themeSelection">
           <DestinationGameBtn />
         </Link>
         <p className="presentation__text">
